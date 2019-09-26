@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { HomeInfoComponent } from 'src/components/home-info/home-info.component';
@@ -18,7 +20,10 @@ import { WeatherService } from 'src/services/weather.service';
     DisplayInfoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

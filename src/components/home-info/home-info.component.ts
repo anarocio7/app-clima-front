@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WeatherService } from 'src/services/weather.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home-info',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
 })
 
 export class HomeInfoComponent {
-  name = 'Stranger';
+  welcome = 'Stranger';
+  formInput = new FormGroup({
+    cityName: new FormControl('', Validators.required)
+  });
+
+  weather = ''
+
+
+  constructor(private weatherService: WeatherService){}
+
+  search() {
+    let form = this.formInput.value;
+    this.weatherService.getHttpRequest(form.cityName).subscribe((res: any) => {
+      this.weather = res.weather;
+    })
+  }
 }
