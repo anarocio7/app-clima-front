@@ -9,5 +9,8 @@
     </form>
     </div><br>
     <a class="btn btn-primary btn-lg" href="#" role="button" (click)="search()">How's weather</a>
-    <p>{{weather}}</p>
+    <div>
+      <p *ngIf="!weather && formInput.touched">We don't have any information</p>
+      <p>{{weather}}</p>
+    </div>
   </div>

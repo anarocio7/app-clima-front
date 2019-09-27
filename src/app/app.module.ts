@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HomeInfoComponent } from 'src/components/home-info/home-info.component';
 import { HeaderComponent } from 'src/components/header/header.component';
 import { CardInfoComponent } from 'src/components/card-info/card-info.component';
-import { DisplayInfoComponent } from 'src/components/home-info/display-info/display-info.component';
 
 import { WeatherService } from 'src/services/weather.service';
 
@@ -16,8 +15,7 @@ import { WeatherService } from 'src/services/weather.service';
     AppComponent,
     HomeInfoComponent,
     HeaderComponent,
-    CardInfoComponent,
-    DisplayInfoComponent
+    CardInfoComponent
   ],
   imports: [
     BrowserModule,

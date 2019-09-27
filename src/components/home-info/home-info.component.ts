@@ -13,7 +13,7 @@ export class HomeInfoComponent {
     cityName: new FormControl('', Validators.required)
   });
 
-  weather = ''
+  weather = '';
 
 
   constructor(private weatherService: WeatherService){}
