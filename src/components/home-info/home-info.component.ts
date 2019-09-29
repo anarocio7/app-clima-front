@@ -19,9 +19,26 @@ export class HomeInfoComponent {
   constructor(private weatherService: WeatherService){}
 
   search() {
-    let form = this.formInput.value;
-    this.weatherService.getHttpRequest(form.cityName).subscribe((res: any) => {
-      this.weather = res.weather;
-    })
+    const form = this.formInput.value;
+    if (!form) {
+      return 'Please input value';
+    } else {
+      this.weatherService.getHttpRequest(form.cityName).subscribe((res: any) => {
+        this.weather = res.weather;
+      });
+    }
+
+  }
+
+  showWeather() {
+    const form = this.formInput.value;
+    if (!form) {
+      return 'Please input value';
+    }
+    else {
+      this.weatherService.getWeather(form.cityName).subscribe((res: any) => {
+        this.weather = res.weather;
+      })
+    }
   }
 }
