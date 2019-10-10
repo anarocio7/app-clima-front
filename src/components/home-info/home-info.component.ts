@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { WeatherService } from 'src/services/weather.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Weather } from 'src/models/weather.model';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-home-info',
@@ -13,12 +15,16 @@ export class HomeInfoComponent {
     cityName: new FormControl('', Validators.required)
   });
 
-  weather = '';
 
+public weather: Weather;
 
-  constructor(private weatherService: WeatherService){}
+constructor(private weatherService: WeatherService){}
 
-  search() {
+ngOnInit() {
+  this.weather = new Weather();
+}
+
+search() {
     const form = this.formInput.value;
     if (!form) {
       return 'Please input value';
@@ -30,15 +36,14 @@ export class HomeInfoComponent {
 
   }
 
-  showWeather() {
+showWeather() {
     const form = this.formInput.value;
-    if (!form) {
-      return 'Please input value';
-    }
-    else {
-      this.weatherService.getWeather(form.cityName).subscribe((res: any) => {
-        this.weather = res.weather;
-      })
-    }
-  }
+    console.log(form)
+    this.weatherService.getWeather(form.cityName).subscribe(resp => {
+      this.weather.setWeather(resp)
+      console.log(this.weather)
+    });
 }
+
+}
+
