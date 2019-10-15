@@ -9,7 +9,9 @@
     </form>
     </div><br>
     <a class="btn btn-primary btn-lg" href="#" role="button" (click)="showWeather()">How's weather</a>
-    <div>
+    <div *ngIf="weather">
+      <p>{{weather.temp}}</p>
       <p>{{weather.description}}</p>
     </div>
   </div>
+

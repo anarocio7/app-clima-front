@@ -41,7 +41,7 @@ showWeather() {
     console.log(form)
     this.weatherService.getWeather(form.cityName).subscribe(resp => {
       this.weather.setWeather(resp)
-      console.log(this.weather)
+      console.log(this.weather.temp);
     });
 }
 
