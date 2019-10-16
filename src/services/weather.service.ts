@@ -16,12 +16,12 @@ export class WeatherService {
     return this.http.get('http://localhost:3000/weather/?city=' + cityName);
   }
 
-public getWeather(cityName: String){
-    return this.http.get<Weather>('http://localhost:3000/weather/?city=' + cityName)
-           .pipe(
-             map(data => new Weather().deserialize(data)),
-             catchError(() => throwError('City not Found'))
-           );
+public getWeather(cityName: string) {
+      return this.http.get<Weather>('http://localhost:3000/weather/?city=' + cityName)
+      .pipe(
+        map(data => new Weather().deserialize(data)),
+        catchError(() => throwError('City not Found'))
+      );
   }
 
 

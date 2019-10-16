@@ -14,10 +14,10 @@ export class Weather implements Deserializable {
   }
 
   capitalize(weather: Weather) {
-    if (weather.description) {
+    if (weather.description !== '') {
       return this.description.charAt(0).toUpperCase() + this.description.slice(1);
     } else {
-      return 'There is no information';
+      return 'We dont have any description available';
     }
   }
 }

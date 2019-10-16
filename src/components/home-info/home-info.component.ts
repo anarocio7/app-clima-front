@@ -38,9 +38,14 @@ search() {
 
 showWeather() {
     const form = this.formInput.value;
-    this.weatherService.getWeather(form.cityName).subscribe(resp => {
-      this.weather.setWeather(resp);
-    });
+    if (form.cityName) {
+      this.weatherService.getWeather(form.cityName).subscribe(resp => {
+        this.weather.setWeather(resp);
+        console.log(resp);
+      });
+    } else {
+      return 'There is no information';
+    }
 }
 
 
