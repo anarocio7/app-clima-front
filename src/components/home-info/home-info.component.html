@@ -11,7 +11,7 @@
     <a class="btn btn-primary btn-lg" href="#" role="button" (click)="showWeather()">How's weather</a>
     <div *ngIf="weather">
       <p>{{weather.temp}}</p>
-      <p>{{weather.description}}</p>
+      <p>{{weather.capitalize(weather)}}</p>
     </div>
   </div>
 

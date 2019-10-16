@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { WeatherService } from 'src/services/weather.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Weather } from 'src/models/weather.model';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-home-info',
@@ -18,8 +17,9 @@ export class HomeInfoComponent {
 
 public weather: Weather;
 
-constructor(private weatherService: WeatherService){}
+constructor(private weatherService: WeatherService) {}
 
+// tslint:disable-next-line:use-lifecycle-interface
 ngOnInit() {
   this.weather = new Weather();
 }
@@ -38,12 +38,12 @@ search() {
 
 showWeather() {
     const form = this.formInput.value;
-    console.log(form)
     this.weatherService.getWeather(form.cityName).subscribe(resp => {
-      this.weather.setWeather(resp)
-      console.log(this.weather.temp);
+      this.weather.setWeather(resp);
     });
 }
+
+
 
 }
 
